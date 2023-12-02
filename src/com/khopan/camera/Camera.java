@@ -9,12 +9,6 @@ public class Camera {
 	@Native
 	private String symbolicLink;
 
-	@Native
-	private int width;
-
-	@Native
-	private int height;
-
 	public Camera() {
 
 	}
@@ -28,12 +22,4 @@ public class Camera {
 	}
 
 	public native byte[] capture();
-
-	public int getCapturedWidth() {
-		return this.width;
-	}
-
-	public int getCapturedHeight() {
-		return this.height;
-	}
 }
