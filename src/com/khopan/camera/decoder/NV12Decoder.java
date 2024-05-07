@@ -21,13 +21,13 @@ public class NV12Decoder implements Decoder {
 		return image;
 	}
 
-	private int yuvToPackedRGB(byte y, byte u, byte v) {
-		double Y = 1.164d * (((double) (y & 0xFF)) - 16.0d);
-		double U = (double) (u & 0xFF) - 128.0d;
-		double V = (double) (v & 0xFF) - 128.0d;
-		int red   = Math.min(Math.max((int) Math.round(Y + 1.596d * V),              0), 255);
-		int green = Math.min(Math.max((int) Math.round(Y - 0.813d * V - 0.391d * U), 0), 255);
-		int blue  = Math.min(Math.max((int) Math.round(Y + 2.018d * U),              0), 255);
+	private int yuvToPackedRGB(byte Y, byte U, byte V) {
+		int y = Y & 0xFF;
+		int u = (U & 0xFF) - 128;
+		int v = (V & 0xFF) - 128;
+		int red   = Math.min(Math.max((int) Math.round(y + 1.402d * v),                  0), 255); 
+		int green = Math.min(Math.max((int) Math.round(y - 0.34414d * u - 0.71414d * v), 0), 255); 
+		int blue  = Math.min(Math.max((int) Math.round(y + 1.772d * u),                  0), 255);
 		return ((red & 0xFF) << 16) | ((green & 0xFF) << 8) | (blue & 0xFF);
 	}
 }
