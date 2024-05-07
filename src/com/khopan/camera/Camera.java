@@ -1,16 +1,12 @@
 package com.khopan.camera;
 
-import java.lang.annotation.Native;
-
 public class Camera {
-	@Native
-	private String name;
+	private final String name;
+	private final String symbolicLink;
 
-	@Native
-	private String symbolicLink;
-
-	public Camera() {
-
+	private Camera(String name, String symbolicLink) {
+		this.name = name;
+		this.symbolicLink = symbolicLink;
 	}
 
 	public String getName() {
@@ -21,5 +17,5 @@ public class Camera {
 		return this.symbolicLink;
 	}
 
-	public native byte[] capture();
+	public static native Camera[] list();
 }
