@@ -9,24 +9,12 @@ public class NV12Decoder implements Decoder {
 	public BufferedImage decode(byte[] data, int width, int height) {		
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
 		int pixels = width * height;
-		byte[] planeY = new byte[pixels];
-		byte[] planeUV = new byte[pixels / 2];
-
-		for(int i = 0; i < planeY.length; i++) {
-			planeY[i] = data[i];
-		}
-
-		for(int i = 0; i < planeUV.length; i++) {
-			planeUV[i] = data[i + planeY.length];
-		}
+		int halfWidth = width / 2;
 
 		for(int y = 0; y < height; y++) {
 			for(int x = 0; x < width; x++) {
-				byte y1 = planeY[y * width + x];
-				int index = ((y / 2) * (width / 2) + (x / 2)) * 2;
-				byte u = planeUV[index];
-				byte v = planeUV[index + 1];
-				image.setRGB(x, y, this.yuvToPackedRGB(y1, u, v));
+				int index = (y / 2 * halfWidth + x / 2) * 2 + pixels;
+				image.setRGB(x, y, this.yuvToPackedRGB(data[y * width + x], data[index], data[index + 1]));
 			}
 		}
 
