@@ -1,5 +1,7 @@
 package test;
 
+import java.awt.image.BufferedImage;
+
 import com.khopan.camera.Camera;
 
 public class Main {
@@ -12,7 +14,7 @@ public class Main {
 		}
 
 		Camera camera = list[0];
-		byte[] image = camera.capture();
-		System.out.println(image == null ? "null" : image.length);
+		BufferedImage image = camera.capture();
+		Preview.preview(image);
 	}
 }

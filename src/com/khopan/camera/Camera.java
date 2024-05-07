@@ -1,5 +1,6 @@
 package com.khopan.camera;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,16 +67,19 @@ public class Camera {
 		return this.symbolicLink.equals(((Camera) camera).symbolicLink);
 	}
 
-	public byte[] capture() {
+	public BufferedImage capture() {
 		return this.capture(SortRule.values());
 	}
 
-	public byte[] capture(SortRule... rules) {
+	public BufferedImage capture(SortRule... rules) {
 		return this.capture(this.getSortedMediaType(rules).getFirst());
 	}
 
-	public byte[] capture(MediaType type) {
-		return this.captureInternal(type);
+	public BufferedImage capture(MediaType type) {
+		VideoFormat format = type.getVideoFormat();
+		Decoder decoder = format.newDecoder();
+		byte[] data = this.captureInternal(type);
+		return decoder.decode(data, type.getFrameWidth(), type.getFrameHeight());
 	}
 
 	private native byte[] captureInternal(MediaType type);
