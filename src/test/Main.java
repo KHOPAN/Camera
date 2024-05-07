@@ -21,7 +21,7 @@ public class Main {
 		for(int i = 0; i < types.length; i++) {
 			MediaType type = types[i];
 
-			if(VideoFormat.YUY2.equals(type.getVideoFormat())) {
+			if(VideoFormat.NV12.equals(type.getVideoFormat())) {
 				BufferedImage image = camera.capture(type);
 				Preview.preview(image);
 				return;

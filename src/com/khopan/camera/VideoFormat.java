@@ -3,12 +3,13 @@ package com.khopan.camera;
 import java.util.function.Supplier;
 
 import com.khopan.camera.decoder.MJPGDecoder;
+import com.khopan.camera.decoder.NV12Decoder;
 import com.khopan.camera.decoder.YUY2Decoder;
 
 public enum VideoFormat {
 	MJPG(() -> new MJPGDecoder()),
 	YUY2(() -> new YUY2Decoder()),
-	NV12(null),
+	NV12(() -> new NV12Decoder()),
 	UNKNOWN(null);
 
 	private final Supplier<Decoder> decoderSupplier;
