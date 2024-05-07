@@ -27,9 +27,6 @@
     <ClInclude Include="camera_instance.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="log_media_type.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.c">
@@ -45,9 +42,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="camera_instance.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="log_media_type.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="media_type_instance.c">

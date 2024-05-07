@@ -1,7 +1,6 @@
 #include "common.h"
 #include <mfidl.h>
 #include "camera_instance.h"
-#include "log_media_type.h"
 
 jobject newCameraInstance(JNIEnv* environment, jclass cameraClass, jclass mediaTypeClass, jmethodID cameraConstructor, jmethodID mediaTypeConstructor, jfieldID indexField, IMFActivate* activate) {
 	LPWSTR deviceName;

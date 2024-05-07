@@ -154,7 +154,6 @@
     <ClInclude Include="camera.h" />
     <ClInclude Include="camera_instance.h" />
     <ClInclude Include="common.h" />
-    <ClInclude Include="log_media_type.h" />
     <ClInclude Include="native.h" />
   </ItemGroup>
   <ItemGroup>
@@ -163,12 +162,6 @@
     <ClCompile Include="camera_list.c" />
     <ClCompile Include="common_exception.c" />
     <ClCompile Include="common_initialization.c" />
-    <ClCompile Include="log_media_type.cpp">
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
-      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
-    </ClCompile>
     <ClCompile Include="media_type_instance.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
