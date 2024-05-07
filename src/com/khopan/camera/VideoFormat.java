@@ -3,10 +3,11 @@ package com.khopan.camera;
 import java.util.function.Supplier;
 
 import com.khopan.camera.decoder.MJPGDecoder;
+import com.khopan.camera.decoder.YUY2Decoder;
 
 public enum VideoFormat {
 	MJPG(() -> new MJPGDecoder()),
-	YUY2(null),
+	YUY2(() -> new YUY2Decoder()),
 	NV12(null),
 	UNKNOWN(null);
 
@@ -21,14 +22,14 @@ public enum VideoFormat {
 			throw new RuntimeException("Unknown type");
 		}
 
+		if(this.decoderSupplier == null) {
+			throw new RuntimeException("Unsupported decoder");
+		}
+
 		return this.decoderSupplier;
 	}
 
 	public Decoder newDecoder() {
-		if(VideoFormat.UNKNOWN.equals(this)) {
-			throw new RuntimeException("Unknown type");
-		}
-
-		return this.decoderSupplier.get();
+		return this.getDecoderSupplier().get();
 	}
 }

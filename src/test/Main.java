@@ -3,6 +3,8 @@ package test;
 import java.awt.image.BufferedImage;
 
 import com.khopan.camera.Camera;
+import com.khopan.camera.MediaType;
+import com.khopan.camera.VideoFormat;
 
 public class Main {
 	public static void main(String[] args) {
@@ -14,7 +16,16 @@ public class Main {
 		}
 
 		Camera camera = list[0];
-		BufferedImage image = camera.capture();
-		Preview.preview(image);
+		MediaType[] types = camera.getMediaTypes();
+
+		for(int i = 0; i < types.length; i++) {
+			MediaType type = types[i];
+
+			if(VideoFormat.YUY2.equals(type.getVideoFormat())) {
+				BufferedImage image = camera.capture(type);
+				Preview.preview(image);
+				return;
+			}
+		}
 	}
 }
