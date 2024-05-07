@@ -85,7 +85,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>D:\library\libkhopan-1.0.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mfplat.lib;libkhopan-debug.lib</AdditionalDependencies>
+      <AdditionalDependencies>mf.lib;mfplat.lib;libkhopan-debug.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -107,7 +107,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>D:\library\libkhopan-1.0.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mfplat.lib;libkhopan-release.lib</AdditionalDependencies>
+      <AdditionalDependencies>mf.lib;mfplat.lib;libkhopan-release.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,7 +125,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>D:\library\libkhopan-1.0.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mfplat.lib;libkhopan-debug.lib</AdditionalDependencies>
+      <AdditionalDependencies>mf.lib;mfplat.lib;libkhopan-debug.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,7 +147,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>D:\library\libkhopan-1.0.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mfplat.lib;libkhopan-release.lib</AdditionalDependencies>
+      <AdditionalDependencies>mf.lib;mfplat.lib;libkhopan-release.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
