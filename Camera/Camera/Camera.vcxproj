@@ -158,6 +158,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.c" />
+    <ClCompile Include="camera_capture.c" />
     <ClCompile Include="camera_instance.c" />
     <ClCompile Include="camera_list.c" />
     <ClCompile Include="common_exception.c" />

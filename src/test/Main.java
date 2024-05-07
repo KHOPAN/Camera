@@ -1,7 +1,6 @@
 package test;
 
 import com.khopan.camera.Camera;
-import com.khopan.camera.MediaType;
 
 public class Main {
 	public static void main(String[] args) {
@@ -13,11 +12,7 @@ public class Main {
 		}
 
 		Camera camera = list[0];
-		MediaType[] types = camera.getSortedMediaType().toArray(new MediaType[0]);
-
-		for(int i = 0; i < types.length; i++) {
-			MediaType type = types[i];
-			System.out.println(type.getFrameWidth() + "x" + type.getFrameHeight() + " " + type.getFramerate() + " FPS " + type.getVideoFormat().name());
-		}
+		byte[] image = camera.capture();
+		System.out.println(image == null ? "null" : image.length);
 	}
 }

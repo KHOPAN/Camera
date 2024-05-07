@@ -2,7 +2,8 @@
 #include "native.h"
 
 static JNINativeMethod CameraNativeMethods[] = {
-	{"list", "()[Lcom/khopan/camera/Camera;", (void*) &Camera_list}
+	{"captureInternal", "(Lcom/khopan/camera/MediaType;)[B", (void*) &Camera_capture},
+	{"list",            "()[Lcom/khopan/camera/Camera;",     (void*) &Camera_list}
 };
 
 void __stdcall InitializeCamera(JNIEnv* environment) {

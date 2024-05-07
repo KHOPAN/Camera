@@ -66,5 +66,19 @@ public class Camera {
 		return this.symbolicLink.equals(((Camera) camera).symbolicLink);
 	}
 
+	public byte[] capture() {
+		return this.capture(SortRule.values());
+	}
+
+	public byte[] capture(SortRule... rules) {
+		return this.capture(this.getSortedMediaType(rules).getFirst());
+	}
+
+	public byte[] capture(MediaType type) {
+		return this.captureInternal(type);
+	}
+
+	private native byte[] captureInternal(MediaType type);
+
 	public static native Camera[] list();
 }

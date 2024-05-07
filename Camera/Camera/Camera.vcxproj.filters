@@ -47,5 +47,8 @@
     <ClCompile Include="media_type_instance.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="camera_capture.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
