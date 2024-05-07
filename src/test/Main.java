@@ -13,7 +13,7 @@ public class Main {
 		}
 
 		Camera camera = list[0];
-		MediaType[] types = camera.getMediaTypes();
+		MediaType[] types = camera.getSortedMediaType().toArray(new MediaType[0]);
 
 		for(int i = 0; i < types.length; i++) {
 			MediaType type = types[i];
