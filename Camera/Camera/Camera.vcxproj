@@ -85,7 +85,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>D:\library\libkhopan-1.0.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mf.lib;mfplat.lib;libkhopan-debug.lib</AdditionalDependencies>
+      <AdditionalDependencies>mf.lib;mfplat.lib;mfuuid.lib;libkhopan-debug.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -107,7 +107,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>D:\library\libkhopan-1.0.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mf.lib;mfplat.lib;libkhopan-release.lib</AdditionalDependencies>
+      <AdditionalDependencies>mf.lib;mfplat.lib;mfuuid.lib;libkhopan-release.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -125,7 +125,7 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>D:\library\libkhopan-1.0.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mf.lib;mfplat.lib;libkhopan-debug.lib</AdditionalDependencies>
+      <AdditionalDependencies>mf.lib;mfplat.lib;mfuuid.lib;libkhopan-debug.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -147,13 +147,14 @@
     </Link>
     <Lib>
       <AdditionalLibraryDirectories>D:\library\libkhopan-1.0.0\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>mf.lib;mfplat.lib;libkhopan-release.lib</AdditionalDependencies>
+      <AdditionalDependencies>mf.lib;mfplat.lib;mfuuid.lib;libkhopan-release.lib</AdditionalDependencies>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
     <ClInclude Include="camera_instance.h" />
     <ClInclude Include="common.h" />
+    <ClInclude Include="log_media_type.h" />
     <ClInclude Include="native.h" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +163,13 @@
     <ClCompile Include="camera_list.c" />
     <ClCompile Include="common_exception.c" />
     <ClCompile Include="common_initialization.c" />
+    <ClCompile Include="log_media_type.cpp">
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">CompileAsCpp</CompileAs>
+      <CompileAs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">CompileAsCpp</CompileAs>
+    </ClCompile>
+    <ClCompile Include="media_type_instance.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

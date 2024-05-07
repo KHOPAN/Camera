@@ -6,3 +6,4 @@
 BOOL InitializeMediaFoundation(JNIEnv* environment);
 BOOL UninitializeMediaFoundation(JNIEnv* environment);
 void ThrowWin32Error(JNIEnv* environment, const LPSTR errorClass, DWORD errorCode, const LPWSTR functionName);
+void ThrowMediaFoundationError(JNIEnv* environment, DWORD errorCode, const LPWSTR functionName);

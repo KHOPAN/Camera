@@ -22,3 +22,7 @@ void ThrowWin32Error(JNIEnv* environment, const LPSTR errorClass, DWORD errorCod
 	KHJavaThrowW(environment, errorClass, message);
 	LocalFree(message);
 }
+
+void ThrowMediaFoundationError(JNIEnv* environment, DWORD errorCode, const LPWSTR functionName) {
+	ThrowWin32Error(environment, "com/khopan/camera/error/MediaFoundationError", errorCode, functionName);
+}

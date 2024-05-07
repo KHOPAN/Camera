@@ -12,7 +12,7 @@ BOOL InitializeMediaFoundation(JNIEnv* environment) {
 	result = MFStartup(MF_VERSION, MFSTARTUP_NOSOCKET);
 
 	if(FAILED(result)) {
-		ThrowWin32Error(environment, "com/khopan/camera/error/MediaFoundationError", result, L"MFStartup");
+		ThrowMediaFoundationError(environment, result, L"MFStartup");
 		return FALSE;
 	}
 
@@ -23,7 +23,7 @@ BOOL UninitializeMediaFoundation(JNIEnv* environment) {
 	HRESULT result = MFShutdown();
 
 	if(FAILED(result)) {
-		ThrowWin32Error(environment, "com/khopan/camera/error/MediaFoundationError", result, L"MFShutdown");
+		ThrowMediaFoundationError(environment, result, L"MFShutdown");
 		return FALSE;
 	}
 

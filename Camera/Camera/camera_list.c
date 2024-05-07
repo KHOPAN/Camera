@@ -5,9 +5,27 @@
 #include "camera_instance.h"
 
 jobjectArray Camera_list(JNIEnv* environment, jclass cameraClass) {
-	jmethodID cameraConstructor = (*environment)->GetMethodID(environment, cameraClass, "<init>", "(Ljava/lang/String;Ljava/lang/String;)V");
+	jclass mediaTypeClass = (*environment)->FindClass(environment, "com/khopan/camera/MediaType");
+
+	if(!mediaTypeClass) {
+		return NULL;
+	}
+
+	jmethodID cameraConstructor = (*environment)->GetMethodID(environment, cameraClass, "<init>", "(Ljava/lang/String;Ljava/lang/String;[Lcom/khopan/camera/MediaType;)V");
 
 	if(!cameraConstructor) {
+		return NULL;
+	}
+
+	jmethodID mediaTypeConstructor = (*environment)->GetMethodID(environment, mediaTypeClass, "<init>", "()V");
+
+	if(!mediaTypeConstructor) {
+		return NULL;
+	}
+
+	jfieldID indexField = (*environment)->GetFieldID(environment, mediaTypeClass, "index", "I");
+
+	if(!indexField) {
 		return NULL;
 	}
 
@@ -20,14 +38,14 @@ jobjectArray Camera_list(JNIEnv* environment, jclass cameraClass) {
 	jobjectArray returnResult = NULL;
 
 	if(FAILED(result)) {
-		ThrowWin32Error(environment, "com/khopan/camera/error/MediaFoundationError", result, L"MFCreateAttributes");
+		ThrowMediaFoundationError(environment, result, L"MFCreateAttributes");
 		goto uninitialize;
 	}
 
 	result = attributes->lpVtbl->SetGUID(attributes, &MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE, &MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID);
 
 	if(FAILED(result)) {
-		ThrowWin32Error(environment, "com/khopan/camera/error/MediaFoundationError", result, L"IMFAttributes::SetGUID");
+		ThrowMediaFoundationError(environment, result, L"IMFAttributes::SetGUID");
 		attributes->lpVtbl->Release(attributes);
 		goto uninitialize;
 	}
@@ -38,7 +56,7 @@ jobjectArray Camera_list(JNIEnv* environment, jclass cameraClass) {
 	attributes->lpVtbl->Release(attributes);
 
 	if(FAILED(result)) {
-		ThrowWin32Error(environment, "com/khopan/camera/error/MediaFoundationError", result, L"MFEnumDeviceSources");
+		ThrowMediaFoundationError(environment, result, L"MFEnumDeviceSources");
 		goto uninitialize;
 	}
 
@@ -55,7 +73,7 @@ jobjectArray Camera_list(JNIEnv* environment, jclass cameraClass) {
 
 	for(UINT32 i = 0; i < count; i++) {
 		IMFActivate* activate = devices[i];
-		jobject cameraInstance = newCameraInstance(environment, cameraClass, cameraConstructor, activate);
+		jobject cameraInstance = newCameraInstance(environment, cameraClass, mediaTypeClass, cameraConstructor, mediaTypeConstructor, indexField, activate);
 		activate->lpVtbl->Release(activate);
 
 		if(!cameraInstance) {
