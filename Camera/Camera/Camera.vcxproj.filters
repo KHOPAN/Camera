@@ -24,6 +24,9 @@
     <ClInclude Include="common.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="camera_instance.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.c">
@@ -36,6 +39,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="common_exception.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="camera_instance.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
