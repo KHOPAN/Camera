@@ -21,12 +21,21 @@
     <ClInclude Include="native.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="common.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="camera_list.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common_initialization.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="common_exception.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

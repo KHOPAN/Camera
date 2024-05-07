@@ -1,7 +1,12 @@
 #include <khopanjava.h>
 #include "native.h"
+#include "common.h"
 
 jobjectArray Camera_list(JNIEnv* environment, jclass cameraClass) {
-	KHJavaStandardOutputW(environment, L"Hello, camera!");
+	if(!InitializeMediaFoundation(environment)) {
+		goto uninitialize;
+	}
+uninitialize:
+	UninitializeMediaFoundation(environment);
 	return NULL;
 }

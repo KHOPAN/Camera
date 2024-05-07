@@ -9,4 +9,3 @@ void __stdcall InitializeCamera(JNIEnv* environment);
 #ifdef __cplusplus
 }
 #endif
-
