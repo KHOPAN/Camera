@@ -11,7 +11,7 @@ void ThrowWin32Error(JNIEnv* environment, const LPSTR errorClass, DWORD errorCod
 		return;
 	}
 
-	LPWSTR message = KHFormatMessageW(L"(%u) %ws", errorCode, messageBuffer);
+	LPWSTR message = KHFormatMessageW(L"%ws (Error code: %u)", messageBuffer, errorCode);
 	LocalFree(messageBuffer);
 
 	if(!message) {
