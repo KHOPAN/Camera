@@ -1,10 +1,10 @@
-package com.khopan.camera;
+package com.khopan.media.camera;
 
 import java.util.function.Supplier;
 
-import com.khopan.camera.decoder.MJPGDecoder;
-import com.khopan.camera.decoder.NV12Decoder;
-import com.khopan.camera.decoder.YUY2Decoder;
+import com.khopan.media.camera.decoder.MJPGDecoder;
+import com.khopan.media.camera.decoder.NV12Decoder;
+import com.khopan.media.camera.decoder.YUY2Decoder;
 
 public enum VideoFormat {
 	MJPG(() -> new MJPGDecoder()),

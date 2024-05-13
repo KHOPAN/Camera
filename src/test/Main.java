@@ -2,7 +2,7 @@ package test;
 
 import java.awt.image.BufferedImage;
 
-import com.khopan.camera.Camera;
+import com.khopan.media.camera.Camera;
 
 public class Main {
 	public static void main(String[] args) {

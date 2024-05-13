@@ -1,4 +1,4 @@
-package com.khopan.camera.decoder;
+package com.khopan.media.camera.decoder;
 
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
@@ -7,7 +7,7 @@ import java.io.ByteArrayInputStream;
 
 import javax.imageio.ImageIO;
 
-import com.khopan.camera.Decoder;
+import com.khopan.media.camera.Decoder;
 
 public class MJPGDecoder implements Decoder {
 	@Override

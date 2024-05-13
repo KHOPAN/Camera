@@ -1,8 +1,8 @@
-package com.khopan.camera.decoder;
+package com.khopan.media.camera.decoder;
 
 import java.awt.image.BufferedImage;
 
-import com.khopan.camera.Decoder;
+import com.khopan.media.camera.Decoder;
 
 public class YUY2Decoder implements Decoder {
 	@Override

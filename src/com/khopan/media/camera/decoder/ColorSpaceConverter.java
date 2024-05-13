@@ -1,4 +1,4 @@
-package com.khopan.camera.decoder;
+package com.khopan.media.camera.decoder;
 
 class ColorSpaceConverter {
 	private ColorSpaceConverter() {}

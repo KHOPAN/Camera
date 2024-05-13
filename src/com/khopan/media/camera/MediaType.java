@@ -1,4 +1,4 @@
-package com.khopan.camera;
+package com.khopan.media.camera;
 
 public class MediaType {
 	private int index;

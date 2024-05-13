@@ -1,4 +1,4 @@
-package com.khopan.camera.error;
+package com.khopan.media;
 
 public class ComAPIError extends Win32Error {
 	private static final long serialVersionUID = -6046569929302405181L;
