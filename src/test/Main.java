@@ -6,7 +6,7 @@ import com.khopan.camera.Camera;
 
 public class Main {
 	public static void main(String[] args) {
-		System.load("D:\\GitHub Repository\\Camera\\Camera\\x64\\Debug\\CameraDLL.dll");
+		System.load("D:\\GitHub Repository\\Media\\Media\\x64\\Release\\MediaDLL.dll");
 		Camera[] list = Camera.list();
 
 		if(list == null) {
